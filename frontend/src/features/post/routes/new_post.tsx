@@ -5,6 +5,12 @@ export function NewPost(): JSX.Element {
   const actionData = useActionData() as
     | { errors: FormValidationErrors }
     | undefined;
+  const defaultContent = localStorage.getItem("postContent") || "";
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    localStorage.setItem("postContent", event.target.value);
+  };
+
   return (
     <div className="main posts-new">
       <div className="container">
@@ -23,6 +29,8 @@ export function NewPost(): JSX.Element {
                   </div>
                 ))}
               <textarea
+                onChange={handleChange}
+                defaultValue={defaultContent}
                 name="content"
                 data-test="textarea-content"
               />

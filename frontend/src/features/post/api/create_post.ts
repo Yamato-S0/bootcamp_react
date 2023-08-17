@@ -10,6 +10,7 @@ export const createPostAction: ActionFunction = async ({
     body: JSON.stringify(Object.fromEntries(formData)),
   });
   if (response.ok) {
+    localStorage.removeItem("postContent");
     sessionStorage.setItem("dialogMessage", "Post successfully created");
     return redirect("/posts");
   }
