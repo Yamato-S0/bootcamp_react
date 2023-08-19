@@ -20,12 +20,13 @@ export function AllPosts(): JSX.Element {
     <>
       <div className="main posts-index">
         <div className="container">
-          <Form data-test="search-input">
+          <Form>
             <input
               type="text"
               placeholder="検索"
               value={search}
               onChange={handleChange}
+              data-test="search-input"
             />
           </Form>
           <PostList posts={filteredPosts} />
