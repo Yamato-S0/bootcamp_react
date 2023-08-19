@@ -7,7 +7,9 @@ export function NewPost(): JSX.Element {
     | undefined;
   const defaultContent = localStorage.getItem("postContent") || "";
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     localStorage.setItem("postContent", event.target.value);
   };
 
